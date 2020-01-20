@@ -1,0 +1,66 @@
+<div class="containter-fluid">
+  <div class="row mx-0">
+    <div class="col-sm-12 banner">
+      <h3 class="title">
+        NUESTROS PRODUCTOS
+      </h3>
+      <div class="grid-three">
+            <div class="picture-item">
+                <img src="assets/images/producto.png" alt="Billpocket" class="img-fluid">
+                <p class="description">
+                    <span>- Transacciones seguras</span>
+                    <span>- Conoce a tus clientes</span>
+                </p>
+                <span class="btn btn-primary">$99</span>
+            </div>
+            <div class="picture-item">
+                <img src="assets/images/producto.png" alt="Billpocket" class="img-fluid">
+                <p class="description">
+                    <span>- Meses sin intereses</span>
+                    <span>- Cobra dónde quieras</span>
+                </p>
+                <span class="btn btn-primary">$199</span>
+            </div>
+            <div class="picture-item">
+                <img src="assets/images/producto.png" alt="Billpocket" class="img-fluid">
+                <p class="description">
+                  <span>- Fácil y rápido</span>
+                  <span>- Depósitos diarios</span>
+                </p>
+                <span class="btn btn-primary">$299</span>
+            </div>
+        </div>
+    </div>
+  </div>
+  <div class="row mx-0">
+    <div class="col-sm-12 px-0">
+      <div class="title-default">
+          <h2>Acerca de nosotros</h2>
+      </div>
+      <p class="text-default">
+        Ofrece a tus clientes opciones de pago cómodas y seguras, al cobrar con tu lector de tarjeta de crédito y
+        débito Billpocket diversificarás la forma en que tus clientes pagan por los productos y/o servicios.
+        Ofrece a tus clientes opciones de pago cómodas y seguras, al cobrar con tu lector de tarjeta de crédito y
+        débito Billpocket diversificarás la forma en que tus clientes pagan por los productos y/o servicios        
+      </p>
+    </div>
+  </div>
+ 
+  <div class="row mx-0 products" *ngFor="let product of products">
+    <div class="col-sm-6">
+      <div class="prod-item">
+        <img src="{{ product.img_sec }}" alt="Billpocket" class="img-fluid">
+        <div class="content">
+          <span>{{ product.title }}</span>
+          <p>{{ product.price | currency }}</p>
+          <button class="btn btn-primary" type="button" (click)="getProductDetail(product.id)">Comprar</button>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-6 prod-text">
+      <h3>{{ product.short_desc }}</h3>
+      <p>{{ product.long_desc }}</p>
+    </div>
+  </div>
+
+</div>

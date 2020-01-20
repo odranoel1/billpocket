@@ -1,0 +1,35 @@
+{
+    "result": [
+        {
+            "id": "1",
+            "title": "Billpocket Básico",
+            "short_desc": "Mayor seguridad dentro y fuera de tu negocio",
+            "long_desc": "Cobrando con tu términal Billpocket tienes la seguridad de que tus ventas serán depositadas al día siguiente en tu cuenta bancaria. De esta manera, no cortas tu flujo de ingresos y evitas pérdidas por robo o extravío.",
+            "img_pri": "assets/images/producto.png",
+            "img_sec": "assets/images/producto1.png",
+            "price": 99,
+            "stock": 100
+        },
+        {
+            "id": "2",
+            "title": "Billpocket Intermedio",
+            "short_desc": "Control de todas tus ventas",
+            "long_desc": "Recibe notificaciones de cada transacción realizada, tus depósitos, facturas recibidas y concentrado del día anterior para que siempre tengas total control de tu negocio y tu dinero. Actívalas en tu panel de control e indica a quienes notificar en cada caso.",
+            "img_pri": "assets/images/producto.png",
+            "img_sec": "assets/images/producto2.png",
+            "price": 199,
+            "stock": 100
+        },
+        {
+            "id": "3",
+            "title": "Billpocket Avanzado",
+            "short_desc": "Ofrece Meses Sin Intereses",
+            "long_desc": "Vuélvete más competitivo y ofrece 3, 6, 9 y hasta 12 meses sin intereses en todos tus productos y servicios. De esta manera aumentarán tus ventas al ser un método de pago muy atractivo para muchos de los usuarios de tarjetas de crédito.",
+            "img_pri": "assets/images/producto.png",
+            "img_sec": "assets/images/producto3.png",
+            "price": 299,
+            "stock": 100
+        }
+    ],
+    "status": 1
+}

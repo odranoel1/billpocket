@@ -1,0 +1,41 @@
+// Add Global Variables
+@import "../../../../styles/app.scss";
+
+.mobil {
+    display: none;
+    @media only screen and (max-width: $xs_size) {
+        display: block;
+    }
+}
+
+.desktop {
+    @media only screen and (max-width: $xs_size) {
+        display: none;
+    }
+}
+
+.product {
+    margin-bottom: 2rem;
+    .img {
+        width: 50px;
+        margin-right: 10px;
+        @media only screen and(max-width: $xs_size) {
+            width: 200px;
+            height: auto;
+            margin: auto;
+            display: block;
+        }
+    }
+    .title {
+        color : $blueLigth;
+        @media only screen and(max-width: $xs_size) {
+            display: block;
+            text-align: center;
+            margin: 1rem auto;
+        }
+    }
+    .qty, .price, .total {
+        display: flex;
+        justify-content: space-between;
+    }
+}

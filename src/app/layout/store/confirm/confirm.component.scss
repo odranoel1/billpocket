@@ -1,0 +1,22 @@
+// Add Global Variables
+@import "../../../../styles/app.scss";
+
+h2 {
+    color: rgba($color: $gray, $alpha: 0.6);
+}
+
+input {
+    border: 1px solid rgba($color: $gray, $alpha: 0.6);
+}
+
+.cart {
+    .item {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 10px;
+        .img {
+            width: 50px;
+        }
+    }
+}

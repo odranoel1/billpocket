@@ -1,0 +1,141 @@
+/* You can add global styles to this file, and also import other style files */
+@import "bootstrap/bootstrap";
+@import "spinner";
+
+/* ================
+Colors
+================ */
+$white: #ffffff;
+$black: #000000;
+$blue: #2a3377;
+$blueLigth : #00ade6;
+$gray : #3c3c3c;
+$yellow: #f7c119;
+
+/* ================
+Responsive Sizes
+================ */
+$xs_size: 575px;
+$sm_size: 768px;
+
+
+/* ================
+General Styles
+================ */
+body {
+    background-color: $white;
+    font-size: 16px;
+    font-family: sans-serif;
+}
+
+h1 {
+    font-size: 1.5em;
+}
+h2 {
+    font-size: 1.4em;
+}
+h3 {
+    font-size: 1.3em;
+}
+h4 {
+    font-size: 1.2em;
+}
+h5 {
+    font-size: 1.1em;
+}
+p {
+    font-size: 1em;
+}
+a   {
+    transition: 0.3s linear;
+    &:hover {
+        color: $blueLigth !important;
+        text-decoration: none;
+    }
+}
+i {
+    color: $white;
+}
+
+
+/* ================
+Button Styles
+================ */
+.btn    {
+    padding: 0.5rem 1.5rem;
+    &-light {
+        border: 1px solid $white;
+        background-color: transparent;
+        color: $white;
+        &:hover {
+            background-color: $white;
+            color: $blueLigth !important;
+        }
+    }
+    &-primary {
+        border: 1px solid $yellow;
+        background-color: $yellow;
+        &:hover {
+            border: 1px solid $blue;
+            background-color: $white;
+            color: $blue;
+        }
+    }
+}
+
+
+// Component - Title Default
+.title-default {
+    color: $blueLigth;
+    text-align:center;
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+    h2 {
+        font-weight: bold;
+    }
+}
+
+.text-default {
+    color: $black;
+    width: 60%;
+    text-align: justify;
+    margin: 3rem auto;
+    @media only screen and (max-width: $xs_size) {
+        width: 80%;
+    }
+}
+
+// Component - Product
+.picture-item {
+    padding: 8px;
+    .description {
+        color: $green;
+        margin-top: 1rem;
+        span {
+            display: block;
+            color: $white;
+        }
+    }
+    .price {
+        background-color: $white;
+        color: $blue;
+        &:hover {
+            background-color: $yellow;
+            color: $white;
+        }
+    }
+}
+
+// Utils
+.grid-three {
+    display: grid;
+    grid-template-columns: repeat(3, auto);
+    justify-content: center;
+    gap: 3rem;
+    @media only screen and (max-width: $xs_size) {
+        grid-template-columns: repeat(2, auto);
+    }
+    @media only screen and (max-width: 480px) {
+        grid-template-columns: repeat(1, auto);
+    }
+}

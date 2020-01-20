@@ -1,0 +1,20 @@
+// Add Global Variables
+@import "../../../../styles/app.scss";
+
+.prod-detail {
+    @media only screen and (max-width: $sm_size) {
+        margin-top: 2rem;
+    }
+    .title {
+        color: $blue;
+        font-weight: bold;
+        text-transform: uppercase;
+    }
+    .price {
+        color: $yellow;
+    }
+    .description, label   {
+        color: rgba($color: $gray, $alpha: 0.6);
+        text-align: justify;
+    }
+}

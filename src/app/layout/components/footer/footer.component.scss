@@ -1,0 +1,57 @@
+// Add Global Variables
+@import "../../../../styles/app.scss";
+
+.footer {
+    background-color: $gray;
+    ul li, a {
+        color: white;
+    }
+    ul {
+        list-style: none;
+        padding-left: 15px;
+        @media only screen and (max-width: $sm_size) {
+            padding-left: 0;
+        }
+    }
+    i {
+        font-size: 1rem;
+    }
+    .main {
+        display: flex;
+        justify-content: center;
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+        @media only screen and (max-width: $xs_size) {
+            flex-direction: column;
+        }
+        .links a {
+            width: 200px;
+            display: block;
+        }
+        .links, .services, .support {
+            width: 33.3%;
+            @media only screen and (max-width: $xs_size) {
+                width: 100%;
+                margin: 0.5rem auto;
+            }
+        }
+        .support .social {
+           li {
+               margin-right: 1rem;
+           }
+        }
+    }
+}
+
+.footer-bottom {
+    text-align: center;
+    background-color: $yellow;
+}
+
+.sticky{
+    position: fixed;
+    bottom: 0;
+    overflow: hidden;
+    z-index: 10;
+    width: 100%;
+  }

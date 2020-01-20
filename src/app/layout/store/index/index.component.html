@@ -1,0 +1,87 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-10 offset-md-1">
+      <div class="title-default">
+        <h2 >Carrito de Compras</h2>
+      </div>
+      <table class="table table-striped desktop" *ngIf="empty == false">
+        <thead>
+          <tr>
+            <th>Producto</th>
+            <th>Precio C/U</th>
+            <th>Cantidad</th>
+            <th>Total</th>
+          </tr>
+        </thead>
+        <tbody *ngFor="let item of items" class="product">
+          <tr>
+            <td>
+              <img src="{{ item.img }}" alt="{{ item.title }}" class="img">
+              <span class="title">{{ item.title }}</span>
+            </td>
+            <td>
+              {{ item.price | currency }}
+            </td>
+            <td>
+              {{ item.qty }}
+            </td>
+            <td>
+              {{ item.price * item.qty | currency }}
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="mobil" *ngIf="empty == false">
+        <div class="product" *ngFor="let item of items">
+          <div class="main">
+            <img src="{{ item.img }}" alt="{{ item.title }}" class="img">
+            <span class="title">{{ item.title }}</span>
+          </div>
+          <div class="qty">
+            <span>Cantidad</span>
+            <span>{{ item.qty }}</span>
+          </div>
+          <div class="price">
+            <span>Precio</span>
+            <span>C/U {{ item.price | currency }}</span>
+          </div>
+          <div class="total">
+            <span>Total</span>
+            <span>{{ item.price * item.qty | currency }}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row" *ngIf="empty == false">
+    <div class="col-md-4 offset-md-7 text-center">
+
+      <span class="mb-3">
+        <b class="pull-left">Total</b>
+        <span class="pull-right">
+          {{ getTotal() | currency }}
+        </span>
+      </span>
+      
+      <a href="" class="btn btn-primary btn-block mt-5 mb-4" (click)="setOrder($event, getTotal())">Comprar</a>
+    </div>
+  </div>
+
+  <div class="row" *ngIf="empty == true">
+    <div class="col-sm-12 text-center">
+      <h4>
+        ¿Sigues sin agregar productos aún?
+      </h4>
+      <h3 class="my-5">
+        Te invitamos a obtener nuestros, en el <br>
+        siguiente botón encontrarás más información
+      </h3>
+      <a routerLink="/" class="btn btn-primary my-5" [routerLinkActive]="['router-link-active']">
+        Agregar productos
+      </a>
+    </div>
+  </div>
+
+</div>

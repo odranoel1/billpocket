@@ -1,0 +1,64 @@
+// Add Global Variables
+@import "../../../styles/app.scss";
+
+.banner {
+    background-color: $blueLigth;
+    text-align: center;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    .title {
+        margin: 3rem auto;
+        border: 1px solid $yellow;
+        background-color: $yellow;
+        color: $white;
+        font-weight: bold;
+        padding: 10px 20px;
+        display: inline-block;
+        @media only screen and (max-width: $sm_size) {
+            font-size: 0.8em;
+        }
+    }
+}
+
+.products {
+    padding: 2rem 0;
+    background-color: $blueLigth;
+    color: $white;
+    border-bottom: 4px solid $white;
+    .prod-item {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        @media only screen and (max-width: $sm_size) {
+            flex-direction: column;
+        }
+        img {
+            width: 200px;
+            margin-right: 50px;
+            @media only screen and (max-width: $sm_size) {
+                margin-right: 0px;
+                margin-bottom: 20px;
+            }
+        }
+        .content {
+            @media only screen and (max-width: $sm_size) {
+                text-align: center;
+            }
+        }
+    }
+    .prod-text {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        h3 {
+            margin-top: 20px;
+        }
+        p {
+            width: 80%;
+            text-align: justify;
+            @media only screen and (max-width: $sm_size) {
+                width: 100%;
+            }
+        }
+    }
+}

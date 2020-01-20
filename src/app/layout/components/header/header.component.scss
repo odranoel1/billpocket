@@ -1,0 +1,30 @@
+// Add Global Variables
+@import "../../../../styles/app.scss";
+
+.header {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    background-color: $blue;
+    .menu  {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        a {
+            color: white;
+        }
+        .logo {
+            width: 200px;
+            @media only screen and (max-width: $sm_size) {
+                width: 100px;
+            }
+        }
+        .cta {
+            .btn {
+                display: flex;
+                .cart {
+                    margin-left: 10px;
+                }
+            }
+        }
+    }
+}

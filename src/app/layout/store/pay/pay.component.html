@@ -1,0 +1,138 @@
+<div class="container-fluid">
+  <div class="row mt-4">
+    <div class="col-md-8 offset-md-2">
+      
+      <div *ngIf="paymentType == paymentMethod.oxxo">
+        <table class="table table-bordered">
+          <thead class="text-center">
+            <tr>
+              <th colspan="2">
+                <img src="assets/images/oxxo.png" alt="Billpocket Oxxo" class="img-fluid" style="width: 200px;">
+              </th>
+            </tr>
+            <tr>
+              <th class="text-center">Total a pagar</th>
+              <th class="text-center">Expira</th>
+            </tr>
+            <tr>
+              <th class="text-center">
+                {{ order.total | currency }}
+              </th>
+              <th class="text-center"> 20/12/2020</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th colspan="2" class="text-center">Dicte los siguientes números al cajero</th>
+            </tr>
+            <tr>
+              <td colspan="2" class="text-center" *ngIf="this.reference">
+                  <span *ngFor="let ref of this.reference">
+                    {{ref}}
+                  </span>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <a routerLink="/thanks" class="btn btn-info btn-block mt-3"><i class="fa fa-credit-card"></i> Pagar ahora</a>
+      </div>
+
+      <form class="form mt-5" [formGroup]="cardForm" (ngSubmit)="sendCardForm()" *ngIf="paymentType == paymentMethod.card">
+        <div class="row">
+          <div class="col-md-4 offset-md-4">
+            <img src="assets/images/card.png" alt="Billpocket Tarjeta" class="img-fluid">
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-12 form-group">
+            <label class="control-label" >Nombre en la tarjeta</label>
+            <input type="text" class="form-control"
+              formControlName="card_name"
+              [ngClass]="{ 'is-invalid': submitted && getFields.card_name.errors }">
+              <div *ngIf="submitted && getFields.card_name.errors" class="invalid-feedback">
+                <div *ngIf="getFields.card_name.errors.required">Nombre es requerido</div>
+                <div *ngIf="getFields.card_name.errors.minlength">Nombre min de 3 carácteres</div>
+                <div *ngIf="getFields.card_name.errors.maxlength">Nombre max de 21 carácteres</div>
+              </div>
+          </div>
+
+          <div class="col-sm-12 form-group">
+            <label class="control-label" >Tarjeta</label>
+            <input type="text" class="form-control"
+              formControlName="card"
+              [ngClass]="{ 'is-invalid': submitted && getFields.card.errors }">
+              <div *ngIf="submitted && getFields.card.errors" class="invalid-feedback">
+                <div *ngIf="getFields.card.errors.required">Tarjeta es requerido</div>
+                <div *ngIf="getFields.card.errors.pattern">Tarjeta debe ser número</div>
+                <div *ngIf="getFields.card.errors.minlength">Tarjeta min de 15 carácteres</div>
+                <div *ngIf="getFields.card.errors.maxlength">Tarjeta max de 21 carácteres</div>
+              </div>
+          </div>
+
+          <div class="col-sm-4 form-group">
+              <label class="control-label">Mes</label>
+              <select type="text" class="form-control" formControlName="month"
+                [ngClass]="{ 'is-invalid': submitted && getFields.month.errors }">
+                <option value="{{ i }}" *ngFor="let month of months; let i = index">
+                  {{ month }}
+                </option>
+              </select>
+              <div *ngIf="submitted && getFields.month.errors" class="invalid-feedback">
+                <div *ngIf="getFields.month.errors.required">Mes es requerido</div>
+              </div>
+          </div>
+
+          <div class="col-sm-4 form-group">
+            <label class="control-label" for="cardform-exp_year">Año</label>
+              <select class="form-control" formControlName="year"
+                [ngClass]="{ 'is-invalid': submitted && getFields.year.errors }">
+                <option value="{{ i }}" *ngFor="let year of years; let i = index">
+                  {{ year }}
+                </option>
+              </select>
+              <div *ngIf="submitted && getFields.year.errors" class="invalid-feedback">
+                <div *ngIf="getFields.year.errors.required">Año es requerido</div>
+              </div>
+          </div>
+
+          <div class="col-sm-4 form-group">
+            <label class="control-label" >CVC</label>
+            <input type="text" class="form-control"
+              formControlName="cvc"
+              [ngClass]="{ 'is-invalid': submitted && getFields.cvc.errors }">
+              <div *ngIf="submitted && getFields.cvc.errors" class="invalid-feedback">
+                <div *ngIf="getFields.cvc.errors.required">CVC es requerido</div>
+                <div *ngIf="getFields.cvc.errors.pattern">CVC debe ser número</div>
+                <div *ngIf="getFields.cvc.errors.maxlength">CVC max de 4 carácteres</div>
+              </div>
+          </div>
+
+          <div class="col-lg-4 md-offset-8">
+            <button type="submit" class="btn btn-info btn-block"><i class="fa fa-credit-card"></i> Pagar ahora</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="title-default">
+        <h2>Selecciona el método de pago</h2>
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-5">
+    <div class="col-sm-6 col-md-6 offset-sm-3 text-center">
+      <div class="payment-method">
+        <a href=""  (click)="setPaymentMethod($event, paymentMethod.oxxo)">
+          <img src="assets/images/oxxo.png" alt="Billpocket Oxxo" class="img-fluid">
+        </a>
+        <a href="" (click)="setPaymentMethod($event, paymentMethod.card)">
+          <img src="assets/images/card.png" alt="Billpocket Tarjeta" class="img-fluid">
+        </a>
+      </div>
+    </div>
+  </div>
+</div>

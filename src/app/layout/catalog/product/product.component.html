@@ -1,0 +1,33 @@
+<div class="container-fluid">
+  <div class="row mx-0 my-5" *ngIf="product">
+    <div class="col-md-4 offset-md-2 text-center">
+      <img class="img-fluid" src="{{ product.img_pri }}" alt="Billpocket {{ product.title }}">
+    </div>
+    <div class="col-md-4 prod-detail">
+      <h3 class="title">{{ product.title }}</h3>
+      <span class="price">{{ product.price | currency }} MXN</span>
+      <p class="description">
+        {{ product.long_desc }}
+      </p>
+      <form class="form" [formGroup]="addToCartForm" (ngSubmit)="addProduct()">
+        <div class="form-group">
+          <label >Cantidad</label>
+          <input class="form-control"
+                type="number"
+                formControlName="qty"
+                min="1"
+                max="{{ product.stock }}"
+                [ngClass]="{ 'is-invalid': submitted && getFields.qty.errors }"
+                placeholder="{{ product.stock }} disponibles">
+          <div *ngIf="submitted && getFields.qty.errors" class="invalid-feedback">
+            <div *ngIf="getFields.qty.errors.required">Selecciona la cantidad</div>
+            <div *ngIf="getFields.qty.errors.min">Agrega al menos un producto</div>
+            <div *ngIf="getFields.qty.errors.pattern">Cantidad debe ser númerico</div>
+          </div>
+          <input type="hidden" formControlName="product_id">
+        </div>
+        <button type="submit" class="btn btn-primary">Añadir al carrito</button>
+      </form>
+    </div>
+  </div>
+</div>

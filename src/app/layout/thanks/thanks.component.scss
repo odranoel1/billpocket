@@ -1,0 +1,13 @@
+// Add Global Variables
+@import "../../../styles/app.scss";
+
+.title-default {
+    img { 
+        width: 200px;
+    }
+    p {
+        color: $black;
+        font-weight: bold;
+        font-size: 0.8em;
+    }
+}
