@@ -8,13 +8,18 @@ export interface Product {
 }
 
 export class Order {
-  email: string;
-  name: string;
-  lastname: string;
-  phone: number;
-  shipment: Shippment;
-  items: any;
-  total: number;
+  public email: string;
+  public name: string;
+  public lastname: string;
+  public phone: number;
+  public client_reference: string;
+  public zipcode: number;
+  public state: string;
+  public city: string;
+  public suburb: string;
+  public street: string;
+  public num_ext: number;
+  public num_int?: number;
 }
 
 export class Shippment {

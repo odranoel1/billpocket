@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { MessagesService } from 'src/app/resources/utils/messages.service';
+import { MessagesService } from 'src/app/shared/utils/messages.service';
 import { Router } from '@angular/router';
-import { Order } from 'src/app/resources/interfaces/interfaces';
+import { Order } from 'src/app/shared/interfaces/interfaces';
+import { ApiService } from 'src/app/shared/services/api.service';
 
 @Component({
   selector: 'app-pay',
@@ -52,9 +53,13 @@ export class PayComponent implements OnInit {
     private formBuilder: FormBuilder,
     private message: MessagesService,
     public router: Router,
+    private api: ApiService
   ) { }
 
   ngOnInit() {
+
+    console.log(this.api.getOrder());
+
     // Create cardForm
     this.cardForm = this.formBuilder.group({
       card_name: ['', [

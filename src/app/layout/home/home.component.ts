@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { NgbCarouselConfig } from '@ng-bootstrap/ng-bootstrap'; 
-import { ApiService } from 'src/app/resources/api/api.service';
-import { Product } from 'src/app/resources/interfaces/interfaces';
+import { Product } from 'src/app/shared/interfaces/interfaces';
 import { Router } from '@angular/router';
+import { ProductService } from 'src/app/shared/services/product.service';
 
 @Component({
   selector: 'app-home',
@@ -13,11 +13,13 @@ export class HomeComponent implements OnInit {
 
   public products: Product;
   public carouselOptions: Array<object>;
+  public error: any;
+  public obs: any;
 
   constructor(
-    private api: ApiService,
     public router: Router,
-    carousel: NgbCarouselConfig
+    carousel: NgbCarouselConfig,
+    private productService: ProductService
   ) {
     carousel.interval = 0;  
     carousel.wrap = true;  
@@ -27,12 +29,18 @@ export class HomeComponent implements OnInit {
 
   ngOnInit() {
 
-    this.api.getProducts().subscribe(response => {
+    this.productService.getProducts()
+      .subscribe(
+        (data: any) => { this.products = data.result },
+        error => this.error = console.log(error)
+      );
+
+    // this.api.getProducts().subscribe(response => {
       
-      if (response.status === 1) {
-        this.products = response.result as Product;
-      }
-    });
+    //   if (response.status === 1) {
+    //     this.products = response.result as Product;
+    //   }
+    // });
 
   }
 

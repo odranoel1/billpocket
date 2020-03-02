@@ -15,7 +15,7 @@ import { AppComponent } from './app.component';
         BrowserAnimationsModule,
         HttpClientModule,
         AppRoutingModule,
-        ToastrModule.forRoot(), // ToastrModule adde
+        ToastrModule.forRoot(), // ToastrModule added
     ],
     declarations: [AppComponent],
     bootstrap: [AppComponent]

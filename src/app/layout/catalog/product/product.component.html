@@ -9,24 +9,19 @@
       <p class="description">
         {{ product.long_desc }}
       </p>
-      <form class="form" [formGroup]="addToCartForm" (ngSubmit)="addProduct()">
+      <form class="form" #addToCartForm="ngForm" (ngSubmit)="onAddProduct()">
         <div class="form-group">
           <label >Cantidad</label>
-          <input class="form-control"
-                type="number"
-                formControlName="qty"
-                min="1"
-                max="{{ product.stock }}"
-                [ngClass]="{ 'is-invalid': submitted && getFields.qty.errors }"
-                placeholder="{{ product.stock }} disponibles">
-          <div *ngIf="submitted && getFields.qty.errors" class="invalid-feedback">
-            <div *ngIf="getFields.qty.errors.required">Selecciona la cantidad</div>
-            <div *ngIf="getFields.qty.errors.min">Agrega al menos un producto</div>
-            <div *ngIf="getFields.qty.errors.pattern">Cantidad debe ser númerico</div>
+          <input type="number" class="form-control" name="qty" [(ngModel)]="productModel.qty" #qty="ngModel" min="1" max="10" required>
+
+          <div *ngIf="qty.errors && qty.dirty" class="alert alert-danger">
+            <ng-container *ngIf="qty.hasError('required')">
+              Selecciona la cantidad
+            </ng-container>
           </div>
-          <input type="hidden" formControlName="product_id">
+          <input type="hidden" name="productid" [(ngModel)]="product.id">
         </div>
-        <button type="submit" class="btn btn-primary">Añadir al carrito</button>
+        <button type="submit" class="btn btn-primary" [disabled]="!addToCartForm.form.valid || productModel.qty == 0">Añadir al carrito</button>
       </form>
     </div>
   </div>

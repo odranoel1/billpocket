@@ -14,7 +14,7 @@ const routes: Routes = [
     children: [
       {
         path: '',
-        component: IndexComponent
+        component: IndexComponent,
       },
       {
         path: 'confirm',

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { SCService } from 'src/app/resources/utils/shopping/sc.service';
+import { SCService } from 'src/app/shared/utils/shopping/sc.service';
 
 @Component({
     selector: 'app-header',

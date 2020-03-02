@@ -2,18 +2,18 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { CatalogRoutingModule } from './catalog-routing.module';
-import { CatalogComponent } from './catalog.component';
 import { IndexComponent } from './index/index.component';
 import { ProductComponent } from './product/product.component';
 
-import { ReactiveFormsModule } from '@angular/forms';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 
 @NgModule({
-  declarations: [CatalogComponent, IndexComponent, ProductComponent],
+  declarations: [IndexComponent, ProductComponent],
   imports: [
     CommonModule,
     ReactiveFormsModule,
-    CatalogRoutingModule
+    CatalogRoutingModule,
+    FormsModule
   ]
 })
 export class CatalogModule { }

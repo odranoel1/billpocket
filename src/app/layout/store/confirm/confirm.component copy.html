@@ -1,0 +1,163 @@
+<div class="container-fluid">
+  <div class="row mt-4">
+    <div class="col-md-4 offset-md-2">
+      <form [formGroup]="orderForm" (ngSubmit)="sendOrderForm()">
+        <div class="row">
+          <div class="col-sm-12">
+            <h2>Datos personales</h2>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-12 form-group">
+            <input type="email" class="form-control" placeholder="Correo Electrónico"
+              formControlName="email"
+              [ngClass]="{ 'is-invalid': submitted && getFields.email.errors }">
+            <div *ngIf="submitted && getFields.email.errors" class="invalid-feedback">
+              <div *ngIf="getFields.email.errors.required">Correo es requerido</div>
+              <div *ngIf="getFields.email.errors.email">Ingresa un correo válido</div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-6 form-group">
+            <input type="text" class="form-control" placeholder="Nombre"
+            formControlName="name"
+            [ngClass]="{ 'is-invalid': submitted && getFields.name.errors }">
+            <div *ngIf="submitted && getFields.name.errors" class="invalid-feedback">
+              <div *ngIf="getFields.name.errors.required">Nombre es requerido</div>
+              <div *ngIf="getFields.name.errors.minlength">Nombre min de 3 carácteres</div>
+            </div>
+          </div>
+          <div class="col-sm-6 form-group">
+            <input type="text" class="form-control" placeholder="Apellidos"
+              formControlName="lastname"
+              [ngClass]="{ 'is-invalid': submitted && getFields.lastname.errors }">
+              <div *ngIf="submitted && getFields.lastname.errors" class="invalid-feedback">
+                <div *ngIf="getFields.lastname.errors.required">Apellidos es requerido</div>
+              </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-12 form-group">
+            <input type="text" class="form-control" placeholder="Teléfono" 
+              formControlName="phone"
+              [ngClass]="{ 'is-invalid': submitted && getFields.phone.errors }">
+              <div *ngIf="submitted && getFields.phone.errors" class="invalid-feedback">
+                <div *ngIf="getFields.phone.errors.required">Teléfono es requerido</div>
+                <div *ngIf="getFields.phone.errors.pattern">Teléfono debe ser número</div>
+                <div *ngIf="getFields.phone.errors.maxlength">Teléfono máximo 10 digitos</div>
+              </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-12">
+            <h2>Dirección de Envío</h2>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-6 form-group">
+            <input type="text" class="form-control" placeholder="Referencia Cliente"
+              formControlName="client_reference"
+              [ngClass]="{ 'is-invalid': submitted && getFields.client_reference.errors }">
+              <div *ngIf="submitted && getFields.client_reference.errors" class="invalid-feedback">
+                <div *ngIf="getFields.client_reference.errors.required">Referencia Cliente es requerido</div>
+                <div *ngIf="getFields.client_reference.errors.maxlength">Referencia Cliente máximo 128 carácteres</div>
+              </div>
+          </div>
+          <div class="col-sm-6 form-group">
+            <input type="text" class="form-control" placeholder="Código Postal"
+              formControlName="zipcode"
+              [ngClass]="{ 'is-invalid': submitted && getFields.zipcode.errors }">
+              <div *ngIf="submitted && getFields.zipcode.errors" class="invalid-feedback">
+                <div *ngIf="getFields.zipcode.errors.required">Código Postal es requerido</div>
+                <div *ngIf="getFields.zipcode.errors.pattern">Código Postal debe ser número</div>
+                <div *ngIf="getFields.zipcode.errors.maxlength">Código Postal máximo 5 digitos</div>
+              </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-6 form-group">
+            <input type="text" class="form-control" placeholder="Estado"
+              formControlName="state"
+              [ngClass]="{ 'is-invalid': submitted && getFields.state.errors }">
+              <div *ngIf="submitted && getFields.state.errors" class="invalid-feedback">
+                <div *ngIf="getFields.state.errors.required">Estado es requerido</div>
+                <div *ngIf="getFields.state.errors.maxlength">Estado máximo 32 carácteres</div>
+              </div>
+          </div>
+          <div class="col-sm-6 form-group">
+            <input type="text" class="form-control" placeholder="Ciudad"
+              formControlName="city"
+              [ngClass]="{ 'is-invalid': submitted && getFields.city.errors }">
+              <div *ngIf="submitted && getFields.city.errors" class="invalid-feedback">
+                <div *ngIf="getFields.city.errors.required">Ciudad es requerido</div>
+                <div *ngIf="getFields.city.errors.maxlength">Ciudad máximo 64 carácteres</div>
+              </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-6 form-group">
+            <input type="text" class="form-control" placeholder="Colonia"
+              formControlName="suburb"
+              [ngClass]="{ 'is-invalid': submitted && getFields.suburb.errors }">
+              <div *ngIf="submitted && getFields.suburb.errors" class="invalid-feedback">
+                <div *ngIf="getFields.suburb.errors.required">Colonia es requerido</div>
+                <div *ngIf="getFields.suburb.errors.maxlength">Colonia máximo 64 carácteres</div>
+              </div>
+          </div>
+          <div class="col-sm-6 form-group">
+            <input type="text" class="form-control" placeholder="Calle"
+              formControlName="street"
+              [ngClass]="{ 'is-invalid': submitted && getFields.street.errors }">
+              <div *ngIf="submitted && getFields.street.errors" class="invalid-feedback">
+                <div *ngIf="getFields.street.errors.required">Calle es requerido</div>
+              </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-6 form-group">
+            <input type="text" class="form-control" placeholder="Núm. Externo"
+              formControlName="num_ext"
+              [ngClass]="{ 'is-invalid': submitted && getFields.num_ext.errors }">
+              <div *ngIf="submitted && getFields.num_ext.errors" class="invalid-feedback">
+                <div *ngIf="getFields.num_ext.errors.required">Núm. Externo es requerido</div>
+              </div>
+          </div>
+          <div class="col-sm-6 form-group">
+            <input type="text" class="form-control" placeholder="Núm. Interno"
+              formControlName="num_int"
+              [ngClass]="{ 'is-invalid': submitted && getFields.num_int.errors }">
+              <div *ngIf="submitted && getFields.num_int.errors" class="invalid-feedback">
+                <div *ngIf="getFields.num_int.errors.required">Núm. Interno es requerido</div>
+              </div>
+          </div>
+        </div>
+        <button type="submit" class="btn btn-block btn-primary my-4">Realizar compra</button>
+      </form>
+    </div>
+    <div class="col-md-4">
+      <h2>Productos</h2>
+      <div class="cart" *ngFor="let item of items">
+        <div class="item">
+          <img src="{{ item.img }}" alt="{{ item.title }}" class="img">
+          <div class="description">
+            <span class="title">{{ item.title }}</span>
+          </div>
+          <div class="price">
+            {{ item.price | currency }} * {{ item.qty }} ({{ item.price * item.qty | currency }})
+          </div>
+        </div>
+      </div>
+      <table class="table">
+        <tbody>
+          <tr>
+            <th class="text-left">Compra</th>
+            <td class="text-right">
+              {{ getTotal() | currency }}
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
